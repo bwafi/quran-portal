@@ -1,9 +1,8 @@
 import React from "react";
-import { Provider } from "react-redux";
 import "./globals.css";
 import { Roboto, Playfair_Display } from "next/font/google";
-import store from "@/store/store";
 import localFont from "next/font/local";
+import { Providers } from "@/store/Providers";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -36,7 +35,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth scroll-py-20">
       <body className={`${roboto.variable} ${fair.variable} ${lpmq.variable} ${surahName.variable} font-roboto`}>
-        <Provider store={store}>{children}</Provider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

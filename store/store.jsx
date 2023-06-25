@@ -6,7 +6,6 @@ const store = configureStore({
   reducer: {
     content: contentReducer,
   },
-  devTools: true,
 });
 
 export default store;
