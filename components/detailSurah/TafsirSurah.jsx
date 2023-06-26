@@ -1,12 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 import { getDetailSurah, selectDetailSurah } from "@/store/slice/contentSlice";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { MdClose } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 
 const TafsirSurah = ({ id, setShowModal, showModal }) => {
+  const modal = useRef();
+
   const surahDetail = useSelector(selectDetailSurah);
 
   const dispatch = useDispatch();
@@ -17,6 +20,20 @@ const TafsirSurah = ({ id, setShowModal, showModal }) => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showModal && !modal.current.contains(event.target)) {
+        setShowModal(false);
+      }
+    };
+
+    window.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showModal]);
 
   return (
     <AnimatePresence>
@@ -33,8 +50,9 @@ const TafsirSurah = ({ id, setShowModal, showModal }) => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
+              ref={modal}
               transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="w-7/12 overflow-y-auto mx-auto bg-white relative top-20 rounded-lg ">
+              className="w-7/12 overflow-y-auto mx-auto bg-white relative top-16 rounded-lg ">
               <div className="flex justify-between items-center py-5 border-b border-gray-200 px-5 shadow-sm">
                 <h3 className="font-bold text-lg">Surah {surahDetail.name.transliteration.id}</h3>
                 <button onClick={handleCloseModal}>
@@ -42,7 +60,7 @@ const TafsirSurah = ({ id, setShowModal, showModal }) => {
                 </button>
               </div>
               <div className="py-5 overflow-y-auto relative max-h-96 px-8">
-                <div className="mb-3">
+                <div className="pb-3  border-b border-b-gray-200">
                   <h4 className="font-bold flex gap-2">
                     Terjemah : <p>{surahDetail.name.translation.id}</p>
                   </h4>
@@ -50,18 +68,10 @@ const TafsirSurah = ({ id, setShowModal, showModal }) => {
                     Tempat Diturunkan : <p>{surahDetail.revelation.id}</p>
                   </h4>
                   <h4 className="font-bold flex gap-2">
-                    Jumlah Ayat : <p>200</p>
+                    Jumlah Ayat : <p>{surahDetail.numberOfVerses}</p>
                   </h4>
                 </div>
-                <p className="text-lg">
-                  "Surat Al Faatihah (Pembukaan) yang diturunkan di Mekah dan terdiri dari 7 ayat adalah surat yang
-                  pertama-tama diturunkan dengan lengkap diantara surat-surat yang ada dalam Al Quran dan termasuk
-                  golongan surat Makkiyyah. Surat ini disebut Al Faatihah (Pembukaan), karena dengan surat inilah dibuka
-                  dan dimulainya Al Quran. Dinamakan Ummul Quran (induk Al Quran) atau Ummul Kitaab (induk Al Kitaab)
-                  karena dia merupakan induk dari semua isi Al Quran, dan karena itu diwajibkan membacanya pada
-                  tiap-tiap sembahyang. Dinamakan pula As Sab'ul matsaany (tujuh yang berulang-ulang) karena ayatnya
-                  tujuh dan dibaca berulang-ulang dalam sholat."
-                </p>
+                <p className="text-lg py-3">{surahDetail.tafsir.id}</p>
               </div>
               <div className="border-t border-gray-300 py-3 flex justify-end px-5">
                 <button onClick={handleCloseModal} className="py-2 px-5 bg-primary rounded-lg text-white">
