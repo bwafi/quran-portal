@@ -1,8 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import Ayat from "./Ayat";
+import { PiInfo } from "react-icons/pi";
+import TafsirSurah from "./TafsirSurah";
 
-const DetailSurahComponent = ({ detailSurah }) => {
+const DetailSurahComponent = ({ detailSurah, id }) => {
   const { preBismillah } = detailSurah;
 
   return (
@@ -15,10 +17,14 @@ const DetailSurahComponent = ({ detailSurah }) => {
               <Image src="../logo/basmalah.svg" alt="basmalah" width={250} height={250} priority />
             </div>
           )}
+          <button className="flex items-center gap-1">
+            <PiInfo className="text-xl" /> <span className="text-sm">Info Surah</span>
+          </button>
         </div>
         <div className="w-full">
           <Ayat detailSurah={detailSurah} />
         </div>
+        <TafsirSurah id={id} />
       </div>
     </>
   );

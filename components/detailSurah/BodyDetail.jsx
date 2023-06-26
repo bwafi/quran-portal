@@ -135,7 +135,7 @@ const BodyDetail = ({ id }) => {
 
       <Container>
         <div className="w-full my-5 relative">
-          <DetailSurahComponent detailSurah={detailSurah} dataSurah={dataSurah} />
+          <DetailSurahComponent id={id} detailSurah={detailSurah} dataSurah={dataSurah} />
         </div>
       </Container>
     </section>
