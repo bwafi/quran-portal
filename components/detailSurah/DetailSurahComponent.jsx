@@ -4,7 +4,7 @@ import Ayat from "./Ayat";
 import { PiInfo } from "react-icons/pi";
 import TafsirSurah from "./TafsirSurah";
 
-const DetailSurahComponent = ({ detailSurah, id }) => {
+const DetailSurahComponent = ({ id, detailSurah }) => {
   const [showModal, setShowModal] = useState(false);
 
   const { preBismillah } = detailSurah;
