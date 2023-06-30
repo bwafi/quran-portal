@@ -1,21 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/no-unescaped-entities */
 "use client";
-import { getDetailSurah, selectDetailSurah } from "@/store/slice/contentSlice";
 import React, { useEffect, useRef } from "react";
 import { MdClose } from "react-icons/md";
-import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 
-const TafsirSurah = ({ id, setShowModal, showModal }) => {
+const TafsirSurah = ({ detailSurah, setShowModal, showModal }) => {
   const modal = useRef();
-
-  const surahDetail = useSelector(selectDetailSurah);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getDetailSurah(id));
-  }, [dispatch, id]);
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -44,8 +34,8 @@ const TafsirSurah = ({ id, setShowModal, showModal }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            key={surahDetail.number}
-            className="w-full h-screen bg-black/40 z-0 mx-auto">
+            key={detailSurah.number}
+            className="w-full h-screen bg-black bg-opacity-40 z-0 mx-auto">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -54,7 +44,7 @@ const TafsirSurah = ({ id, setShowModal, showModal }) => {
               transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="w-7/12 overflow-y-auto mx-auto bg-white relative top-16 rounded-lg ">
               <div className="flex justify-between items-center py-5 border-b border-gray-200 px-5 shadow-sm">
-                <h3 className="font-bold text-lg">Surah {surahDetail.name.transliteration.id}</h3>
+                <h3 className="font-bold text-lg">Surah {detailSurah.name.transliteration.id}</h3>
                 <button onClick={handleCloseModal}>
                   <MdClose className="text-3xl" />
                 </button>
@@ -62,16 +52,16 @@ const TafsirSurah = ({ id, setShowModal, showModal }) => {
               <div className="py-5 overflow-y-auto relative max-h-96 px-8">
                 <div className="pb-3  border-b border-b-gray-200">
                   <h4 className="font-bold flex gap-2">
-                    Terjemah : <p>{surahDetail.name.translation.id}</p>
+                    Terjemah : <p>{detailSurah.name.translation.id}</p>
                   </h4>
                   <h4 className="font-bold flex gap-2">
-                    Tempat Diturunkan : <p>{surahDetail.revelation.id}</p>
+                    Tempat Diturunkan : <p>{detailSurah.revelation.id}</p>
                   </h4>
                   <h4 className="font-bold flex gap-2">
-                    Jumlah Ayat : <p>{surahDetail.numberOfVerses}</p>
+                    Jumlah Ayat : <p>{detailSurah.numberOfVerses}</p>
                   </h4>
                 </div>
-                <p className="text-lg py-3">{surahDetail.tafsir.id}</p>
+                <p className="text-lg py-3">{detailSurah.tafsir.id}</p>
               </div>
               <div className="border-t border-gray-300 py-3 flex justify-end px-5">
                 <button onClick={handleCloseModal} className="py-2 px-5 bg-primary rounded-lg text-white">

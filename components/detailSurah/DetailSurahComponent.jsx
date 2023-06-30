@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Ayat from "./Ayat";
-import { PiInfo } from "react-icons/pi";
+import { HiInformationCircle } from "react-icons/hi";
 import TafsirSurah from "./TafsirSurah";
 
 const DetailSurahComponent = ({ id, detailSurah }) => {
@@ -23,14 +23,14 @@ const DetailSurahComponent = ({ id, detailSurah }) => {
               <Image src="../logo/basmalah.svg" alt="basmalah" width={250} height={250} priority />
             </div>
           )}
-          <button onClick={handleShowModal} className="flex items-center gap-1">
-            <PiInfo className="text-xl" /> <span className="text-sm">Info Surah</span>
+          <button onClick={handleShowModal} className="flex items-center gap-1 hover:opacity-80">
+            <HiInformationCircle className="text-xl" /> <span className="text-sm font-bold">Info Surah</span>
           </button>
         </div>
         <div className="w-full">
-          <Ayat detailSurah={detailSurah} />
+          <Ayat detailSurah={detailSurah} id={id} />
         </div>
-        <TafsirSurah id={id} showModal={showModal} setShowModal={setShowModal} />
+        <TafsirSurah id={id} showModal={showModal} setShowModal={setShowModal} detailSurah={detailSurah} />
       </div>
     </>
   );

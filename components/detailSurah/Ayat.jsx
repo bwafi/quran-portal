@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { CiPlay1, CiPause1 } from "react-icons/ci";
+import { PiBookOpenLight } from "react-icons/pi";
+import TafsirAyat from "./TafsirAyat";
 
 const Ayat = ({ detailSurah }) => {
   const [currentVerse, setCurrentVerse] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [numberVerses, setNumberVerses] = useState(null);
 
   const arabicNumber = (number) => {
     return number.toLocaleString("ar-EG");
@@ -24,6 +28,11 @@ const Ayat = ({ detailSurah }) => {
     window.location.hash = currentVerse;
   }, [currentVerse]);
 
+  const handleShowModal = (ayat) => {
+    setNumberVerses(ayat);
+    setShowModal(true);
+  };
+
   return (
     <>
       {verses.map((data) => (
@@ -32,7 +41,13 @@ const Ayat = ({ detailSurah }) => {
             {data.text.arab} <span className="text-3xl">{arabicNumber(data.number.inSurah)}</span>
           </p>
           <p className="mt-6">{data.translation.id}</p>
-          <div className="flex justify-end mt-5">
+          <div className="flex justify-end mt-5 gap-5">
+            <button onClick={() => handleShowModal(data.number.inSurah)}>
+              <div className="flex flex-col items-center">
+                <PiBookOpenLight className="text-2xl" /> <span className="text-sm">Tafsir</span>
+              </div>
+            </button>
+
             <button onClick={() => handlePlayAudio(data.number.inSurah)}>
               {currentVerse === data.number.inSurah && isPlaying ? (
                 <div className="flex flex-col items-center">
@@ -59,6 +74,15 @@ const Ayat = ({ detailSurah }) => {
           </div>
         </div>
       ))}
+
+      {showModal && (
+        <TafsirAyat
+          detailSurah={detailSurah}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          numberVerses={numberVerses}
+        />
+      )}
     </>
   );
 };

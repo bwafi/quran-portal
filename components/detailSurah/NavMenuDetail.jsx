@@ -5,14 +5,19 @@ import { BiCaretDown } from "react-icons/bi";
 const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
   const [toggleSurah, setToggleSurah] = useState(false);
   const [toggleAyat, setToggleAyat] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [ayat, setAyat] = useState(1);
+  const [searchSurahQuery, setSearchSurahQuery] = useState("");
+  const [searchAyatQuery, setSearchAyatQuery] = useState("");
+  const [ayatHash, setAyatHash] = useState(1);
   const dropdownRef = useRef(null);
+  const dropdownAyatRef = useRef(null);
 
   // Click outside handle
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (toggleAyat || (toggleSurah && dropdownRef.current && !dropdownRef.current.contains(event.target))) {
+      if (
+        (toggleAyat && !dropdownAyatRef.current.contains(event.target)) ||
+        (toggleSurah && !dropdownRef.current.contains(event.target))
+      ) {
         setToggleSurah(false);
         setToggleAyat(false);
       }
@@ -28,28 +33,36 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
   const handleToggleSurah = () => {
     setToggleAyat(false);
     setToggleSurah(!toggleSurah);
-    setSearchQuery("");
+    setSearchSurahQuery("");
   };
 
   const handleToggleAyat = () => {
     setToggleSurah(false);
     setToggleAyat(!toggleAyat);
+    setSearchAyatQuery("");
   };
 
   const handleGetAyat = (selectAyat) => {
-    setAyat(selectAyat);
+    setAyatHash(selectAyat);
+    setToggleAyat(false);
   };
 
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
+  const handleSearchSurahChange = (event) => {
+    setSearchSurahQuery(event.target.value);
+  };
+
+  const handleSearchAyatChange = (event) => {
+    setSearchAyatQuery(event.target.value);
   };
 
   const filteredSurahList = surahList.filter((surah) =>
     surah.name.transliteration.id
       .replace(/[.,'"-]/g, "")
       .toLowerCase()
-      .includes(searchQuery.toLowerCase())
+      .includes(searchSurahQuery.toLowerCase())
   );
+
+  const filteredAyatList = dataSurah.filter((ayat) => ayat.number.inSurah.toString().includes(searchAyatQuery));
 
   return (
     <>
@@ -62,7 +75,7 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
           <div ref={dropdownRef} className="w-[18%] max-h-[430px] absolute top-14">
             <div className="w-full h-14 bg-white py-3 px-3 mx-auto z-10 shadow-md">
               <input
-                onChange={handleSearchChange}
+                onChange={handleSearchSurahChange}
                 type="text"
                 placeholder="Search"
                 className="w-full h-8 border border-text/30 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200"
@@ -82,24 +95,33 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
         )}
 
         <button onClick={handleToggleAyat} className="py-1 px-2 rounded-md flex items-center gap-2 hover:bg-white/40">
-          Ayat {ayat}
+          Ayat {ayatHash}
           <BiCaretDown />
         </button>
 
         {toggleAyat && (
-          <ul className="w-1/12 max-h-[430px] overflow-auto rounded-md absolute left-56 shadow-md z-10 top-14">
-            {dataSurah.map((surah) => (
-              <a
-                ref={dropdownRef}
-                key={surah.number.inSurah}
-                href={`#${surah.number.inSurah}`}
-                onClick={() => handleGetAyat(surah.number.inSurah)}>
-                <li className="border-b border-b-gray-100 bg-white hover:bg-gray-200 py-3 px-4 flex justify-between">
-                  <span className="">Ayat {surah.number.inSurah}</span>
-                </li>
-              </a>
-            ))}
-          </ul>
+          <div ref={dropdownAyatRef} className="w-[13%] absolute top-14 left-56">
+            <div className="w-full h-14 bg-white py-3 px-3 mx-auto z-10 shadow-md">
+              <input
+                type="text"
+                placeholder="Search"
+                onChange={handleSearchAyatChange}
+                className="w-full h-8 border border-text/30 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200"
+              />
+            </div>
+            <ul className=" max-h-[430px] overflow-auto rounded-md shadow-md z-10 top-14">
+              {filteredAyatList.map((surah) => (
+                <a
+                  key={surah.number.inSurah}
+                  href={`#${surah.number.inSurah}`}
+                  onClick={() => handleGetAyat(surah.number.inSurah)}>
+                  <li className="border-b border-b-gray-100 bg-white hover:bg-gray-200 py-3 px-4 flex justify-between">
+                    <span className="">Ayat {surah.number.inSurah}</span>
+                  </li>
+                </a>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
       <p>setting</p>
