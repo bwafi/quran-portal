@@ -20,7 +20,14 @@ const DetailSurahComponent = ({ id, detailSurah }) => {
           <p className="text-6xl font-surahName text-arab">{detailSurah.number}</p>
           {preBismillah && (
             <div className="py-6 flex justify-center">
-              <Image src="../logo/basmalah.svg" alt="basmalah" width={250} height={250} priority />
+              <Image
+                src="../logo/basmalah.svg"
+                alt="basmalah"
+                width={250}
+                height={250}
+                priority
+                className="w-auto h-auto"
+              />
             </div>
           )}
           <button onClick={handleShowModal} className="flex items-center gap-1 hover:opacity-80">

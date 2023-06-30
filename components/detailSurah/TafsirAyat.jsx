@@ -30,15 +30,22 @@ const TafsirAyat = ({ detailSurah, numberVerses, setShowModal, showModal }) => {
 
   return (
     <AnimatePresence>
-      {showModal && selectedVerse && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          key={selectedVerse.number.inSurah}
-          className="fixed w-full h-screen top-0 left-0 mx-auto z-40">
-          <div className="w-full h-screen bg-black/50 z-50 mx-auto">
-            <div ref={modal} className="w-7/12 overflow-y-auto mx-auto bg-white relative top-16 rounded-lg ">
+      {showModal && (
+        <div className="fixed w-full h-screen top-0 left-0 mx-auto z-40">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            key={selectedVerse.number.inSurah}
+            className="w-full h-screen bg-black/50 z-50 mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+              ref={modal}
+              className="w-7/12 overflow-y-auto mx-auto bg-white relative top-16 rounded-lg ">
               <div className="flex justify-between items-center py-5 border-b border-gray-200 px-5 shadow-sm">
                 <h3 className="font-bold text-lg">Surah {detailSurah.name.transliteration.id}</h3>
                 <button onClick={handleCloseModal}>
@@ -47,7 +54,7 @@ const TafsirAyat = ({ detailSurah, numberVerses, setShowModal, showModal }) => {
               </div>
               <div className="py-5 overflow-y-auto relative max-h-96 px-8">
                 <div className="border-b py-5">
-                  <h4 className="font-lpmq text-xl text-right font-bold">{selectedVerse.text.arab}</h4>
+                  <h4 className="font-lpmq text-xl text-right font-semibold">{selectedVerse.text.arab}</h4>
                   <p className="mt-3 text-lg">{selectedVerse.translation.id}</p>
                 </div>
                 <p className="py-3 text-lg">{selectedVerse.tafsir.id.long}</p>
@@ -57,9 +64,9 @@ const TafsirAyat = ({ detailSurah, numberVerses, setShowModal, showModal }) => {
                   Close
                 </button>
               </div>
-            </div>
-          </div>
-        </motion.div>
+            </motion.div>
+          </motion.div>
+        </div>
       )}
     </AnimatePresence>
   );

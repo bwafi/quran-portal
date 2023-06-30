@@ -75,14 +75,12 @@ const Ayat = ({ detailSurah }) => {
         </div>
       ))}
 
-      {showModal && (
-        <TafsirAyat
-          detailSurah={detailSurah}
-          showModal={showModal}
-          setShowModal={setShowModal}
-          numberVerses={numberVerses}
-        />
-      )}
+      <TafsirAyat
+        detailSurah={detailSurah}
+        showModal={showModal}
+        setShowModal={setShowModal}
+        numberVerses={numberVerses}
+      />
     </>
   );
 };
