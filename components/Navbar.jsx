@@ -5,7 +5,9 @@ const Navbar = () => {
   return (
     <nav className="w-full bg-white text-text py-4 shadow">
       <div className="w-full mx-auto container px-16 flex items-center justify-between">
-        <h2 className="font-fair font-extrabold text-transparent text-3xl bg-clip-text bg-primary">Quran Portal</h2>
+        <a href="/">
+          <h2 className="font-fair font-extrabold text-transparent text-3xl bg-clip-text bg-primary">Quran Portal</h2>
+        </a>
         <ul className="flex gap-5 items-center">
           <li className="hover:text-primary">
             <Link href="/">Home</Link>

@@ -26,7 +26,6 @@ const TafsirAyat = ({ detailSurah, numberVerses, setShowModal, showModal }) => {
   const { verses } = detailSurah;
 
   const selectedVerse = verses.find((verse) => verse.number.inSurah === numberVerses);
-  console.log(selectedVerse);
 
   return (
     <AnimatePresence>

@@ -30,8 +30,9 @@ const DetailSurahComponent = ({ id, detailSurah }) => {
               />
             </div>
           )}
-          <button onClick={handleShowModal} className="flex items-center gap-1 hover:opacity-80">
-            <HiInformationCircle className="text-xl" /> <span className="text-sm font-bold">Info Surah</span>
+          <button onClick={handleShowModal} className="flex items-center gap-1 group">
+            <HiInformationCircle className="text-xl group-hover:text-primary" />{" "}
+            <span className="text-sm font-bold group-hover:text-primary">Info Surah</span>
           </button>
         </div>
         <div className="w-full">

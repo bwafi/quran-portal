@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CiPlay1, CiPause1 } from "react-icons/ci";
-import { PiBookOpenLight } from "react-icons/pi";
+import { PiBookOpenLight, PiCopySimpleThin, PiCheckCircleLight } from "react-icons/pi";
 import TafsirAyat from "./TafsirAyat";
 
 const Ayat = ({ detailSurah }) => {
@@ -8,6 +8,7 @@ const Ayat = ({ detailSurah }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [numberVerses, setNumberVerses] = useState(null);
+  const [copiedVerses, setCopiedVerses] = useState({});
 
   const arabicNumber = (number) => {
     return number.toLocaleString("ar-EG");
@@ -33,6 +34,14 @@ const Ayat = ({ detailSurah }) => {
     setShowModal(true);
   };
 
+  const handleCopy = (copy, verseNumber) => {
+    navigator.clipboard.writeText(copy);
+    setCopiedVerses({ [verseNumber]: true });
+    setTimeout(() => {
+      setCopiedVerses({ [verseNumber]: false });
+    }, 2000);
+  };
+
   return (
     <>
       {verses.map((data) => (
@@ -41,25 +50,40 @@ const Ayat = ({ detailSurah }) => {
             {data.text.arab} <span className="text-3xl">{arabicNumber(data.number.inSurah)}</span>
           </p>
           <p className="mt-6">{data.translation.id}</p>
-          <div className="flex justify-end mt-5 gap-5">
-            <button onClick={() => handleShowModal(data.number.inSurah)}>
+          <div className="flex items-center justify-end mt-5 gap-5">
+            <button onClick={() => handleCopy(data.text.arab, data.number.inSurah)} className="group">
               <div className="flex flex-col items-center">
-                <PiBookOpenLight className="text-2xl" /> <span className="text-sm">Tafsir</span>
+                {copiedVerses[data.number.inSurah] ? (
+                  <PiCheckCircleLight className="text-2xl group-hover:text-primary" />
+                ) : (
+                  <PiCopySimpleThin className="text-2xl group-hover:text-primary" />
+                )}
+                <span className="text-sm group-hover:text-primary">
+                  {copiedVerses[data.number.inSurah] ? "Copied!" : "Copy"}
+                </span>
               </div>
             </button>
 
-            <button onClick={() => handlePlayAudio(data.number.inSurah)}>
-              {currentVerse === data.number.inSurah && isPlaying ? (
-                <div className="flex flex-col items-center">
-                  <CiPause1 className="text-xl" />
-                  <p className="text-sm">Pause</p>
-                </div>
-              ) : (
-                <div className="flex flex-col items-center">
-                  <CiPlay1 className="text-xl" />
-                  <p className="text-sm">Play</p>
-                </div>
-              )}
+            <button onClick={() => handleShowModal(data.number.inSurah)} className="group">
+              <div className="flex flex-col items-center">
+                <PiBookOpenLight className="text-2xl group-hover:text-primary" />
+                <span className="text-sm group-hover:text-primary">Tafsir</span>
+              </div>
+            </button>
+
+            <button onClick={() => handlePlayAudio(data.number.inSurah)} className="group">
+              <div className="flex flex-col items-center ">
+                {currentVerse === data.number.inSurah && isPlaying ? (
+                  <>
+                    <CiPause1 className="text-xl group-hover:text-primary" />
+                  </>
+                ) : (
+                  <>
+                    <CiPlay1 className="text-xl group-hover:text-primary" />
+                  </>
+                )}
+                <p className="text-sm group-hover:text-primary">{isPlaying ? "Pause" : "Play"}</p>
+              </div>
             </button>
             {currentVerse === data.number.inSurah && isPlaying && (
               <audio

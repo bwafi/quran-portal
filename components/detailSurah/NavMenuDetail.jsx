@@ -124,7 +124,7 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
           </div>
         )}
       </div>
-      <p>setting</p>
+      <p className="shrink">setting</p>
     </>
   );
 };
