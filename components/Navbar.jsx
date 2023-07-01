@@ -13,7 +13,7 @@ const Navbar = () => {
             <Link href="/">Home</Link>
           </li>
           <li className="hover:text-primary">
-            <Link href="/tajwid">Panduan Tajwid</Link>
+            <Link href="/jadwal-solat">Jadwal Solat</Link>
           </li>
           <li className="hover:text-primary">
             <Link href="/hadist">Hadist</Link>

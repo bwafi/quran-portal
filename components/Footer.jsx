@@ -3,11 +3,12 @@ import { ImLocation } from "react-icons/im";
 import { HiPhone } from "react-icons/hi";
 import { MdEmail } from "react-icons/md";
 import Link from "next/link";
+import { AiFillGithub, AiFillLinkedin, AiFillInstagram, AiFillTwitterSquare } from "react-icons/ai";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-white-blue mx-auto py-10 text-text">
-      <div className="w-full mx-auto container px-16 flex">
+    <footer className="w-full bg-white-blue mx-auto text-text">
+      <div className="w-full mx-auto container px-16 flex py-5">
         <div className="w-5/12">
           <h2 className="font-fair font-extrabold text-transparent text-2xl bg-clip-text bg-primary">Quran Portal</h2>
           <h4 className="font-bold mt-3">Baca dan pelajari The Noble Quran</h4>
@@ -53,7 +54,7 @@ const Footer = () => {
               <Link href="/about">About</Link>
             </li>
             <li className="hover:text-primary">
-              <Link href="/tajwid">Panduan Tajwid</Link>
+              <Link href="/jadwal-solat">Jadwal Solat</Link>
             </li>
             <li className="hover:text-primary">
               <Link href="/hadist">Hadist</Link>
@@ -62,6 +63,30 @@ const Footer = () => {
               <Link href="/masukan">Beri Masukan</Link>
             </li>
           </ul>
+        </div>
+      </div>
+      <div className="w-full mx-auto container px-16 flex justify-between py-3 border-t">
+        <p>
+          Copyright &copy; 2022{" "}
+          <a href="https://www.instagram.com/itssyahroni/" target="_blank" className="hover:text-primary">
+            Syahroni Bawafi
+          </a>
+          . All Right Reserved.
+        </p>
+
+        <div className="flex items-center gap-3">
+          <a href="https://github.com/bwafi" target="_blank">
+            <AiFillGithub className="text-3xl hover:text-primary" />
+          </a>
+          <a href="https://www.linkedin.com/in/syahroni-bawafi-93b422265/" target="_blank">
+            <AiFillLinkedin className="text-3xl hover:text-primary" />
+          </a>
+          <a href="https://www.instagram.com/itssyahroni/" target="_blank">
+            <AiFillInstagram className="text-3xl hover:text-primary" />
+          </a>
+          <a href="https://twitter.com/itssyahroni" target="_blank">
+            <AiFillTwitterSquare className="text-3xl hover:text-primary" />
+          </a>
         </div>
       </div>
     </footer>
