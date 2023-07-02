@@ -54,7 +54,7 @@ const Footer = () => {
               <Link href="/about">About</Link>
             </li>
             <li className="hover:text-primary">
-              <Link href="/jadwal-solat">Jadwal Solat</Link>
+              <Link href="/jadwal-sholat">Jadwal Solat</Link>
             </li>
             <li className="hover:text-primary">
               <Link href="/hadist">Hadist</Link>
@@ -67,7 +67,7 @@ const Footer = () => {
       </div>
       <div className="w-full mx-auto container px-16 flex justify-between py-3 border-t">
         <p>
-          Copyright &copy; 2022{" "}
+          Copyright &copy; 2023
           <a href="https://www.instagram.com/itssyahroni/" target="_blank" className="hover:text-primary">
             Syahroni Bawafi
           </a>

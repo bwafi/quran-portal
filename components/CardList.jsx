@@ -43,7 +43,7 @@ const CardList = () => {
             </p>
           </div>
           <div className="">
-            <h3 className="font-semibold text-text/90 font-amiri text-right">{surah.name.short}</h3>
+            <h3 className="font-semibold text-text/90 font-lpmq text-right">{surah.name.short}</h3>
             <p className="text-sm font-semibold text-text/60 group-hover:text-primary/70">
               {surah.numberOfVerses} Ayat
             </p>
