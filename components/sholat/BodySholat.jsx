@@ -5,7 +5,7 @@ import Container from "../Container";
 import JadwalSholatNow from "./JadwalSholatNow";
 
 const BodySholat = () => {
-  const [getCityDropDown, setGetCityDropDown] = useState("jakarta");
+  const [getCityDropDown, setGetCityDropDown] = useState("jember");
 
   useEffect(() => {
     console.log(getCityDropDown);

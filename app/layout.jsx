@@ -34,7 +34,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth scroll-py-24">
-      <body className={`${roboto.variable} ${fair.variable} ${lpmq.variable} ${surahName.variable} font-roboto`}>
+      <body
+        className={`${roboto.variable} ${fair.variable} ${lpmq.variable} ${surahName.variable} font-roboto bg-white`}>
         <Providers>{children}</Providers>
       </body>
     </html>

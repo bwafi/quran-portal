@@ -17,14 +17,43 @@ const JadwalSholatNow = ({ getCityDropDown }) => {
     console.log(getCityDropDown);
   }, [dispatch, getCityDropDown, month, year]);
 
+  const jadwalNow = jadwalSholat.filter((sholat) => sholat.tanggal == currentDate);
+  console.log(jadwalNow);
+
   if (!jadwalSholat) {
     return <div>loding..</div>;
   }
 
   return (
-    <div>
-      <div>{month}</div>
-      <div>{year}</div>
+    <div className="flex justify-center my-10">
+      {jadwalNow.map((jadwal) => (
+        <div key={jadwal.tanggal} className="flex shadow-md">
+          <div className="flex flex-col bg-white justify-center items-center gap-3 py-5 px-8 rounded-md border-r last:border-r-0">
+            <h2 className="text-2xl text-primary">Imsyak</h2>
+            <p className="">{jadwal.imsyak} (WIB)</p>
+          </div>
+          <div className="flex flex-col bg-white justify-center items-center gap-3 py-5 px-8 rounded-md border-r last:border-r-0">
+            <h2 className="text-2xl text-primary">Subuh</h2>
+            <p className="">{jadwal.shubuh} (WIB)</p>
+          </div>
+          <div className="flex flex-col bg-white justify-center items-center gap-3 py-5 px-8 rounded-md border-r last:border-r-0">
+            <h2 className="text-2xl text-primary">Dzuhur</h2>
+            <p className="">{jadwal.dzuhur} (WIB)</p>
+          </div>
+          <div className="flex flex-col bg-white justify-center items-center gap-3 py-5 px-8 rounded-md border-r last:border-r-0">
+            <h2 className="text-2xl text-primary">Ashar</h2>
+            <p className="">{jadwal.ashr} (WIB)</p>
+          </div>
+          <div className="flex flex-col bg-white justify-center items-center gap-3 py-5 px-8 rounded-md border-r last:border-r-0">
+            <h2 className="text-2xl text-primary">Maghrib</h2>
+            <p className="">{jadwal.magrib} (WIB)</p>
+          </div>
+          <div className="flex flex-col bg-white justify-center items-center gap-3 py-5 px-8 rounded-md border-r last:border-r-0">
+            <h2 className="text-2xl text-primary">Isya</h2>
+            <p className="">{jadwal.isya} (WIB)</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

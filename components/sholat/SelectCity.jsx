@@ -8,6 +8,7 @@ import dayjs from "dayjs";
 const SelectCity = ({ getCityDropDown, setGetCityDropDown }) => {
   const [showDropDown, setShowDropDown] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const dropDownRef = useRef(null);
 
@@ -43,6 +44,12 @@ const SelectCity = ({ getCityDropDown, setGetCityDropDown }) => {
     return () => clearInterval(timer);
   }, []);
 
+  const handleChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filterCity = listCity.filter((city) => city.includes(searchQuery.toLowerCase()));
+
   return (
     <div className="w-full mx-auto mt-10 flex justify-center">
       <div className="w-full flex justify-center gap-5 items-center">
@@ -53,18 +60,26 @@ const SelectCity = ({ getCityDropDown, setGetCityDropDown }) => {
             {getCityDropDown} <BiCaretDown />
           </button>
           {showDropDown && (
-            <ul
-              ref={dropDownRef}
-              className="w-[14%] max-h-[420px] overflow-y-auto absolute top-40 bg-white shadow rounded-md">
-              {listCity.map((city) => (
-                <li
-                  key={city}
-                  onClick={() => handleGetCity(city)}
-                  className="py-3 text-center border-t capitalize cursor-pointer hover:bg-gray-100">
-                  {city}
-                </li>
-              ))}
-            </ul>
+            <div ref={dropDownRef} className="w-[14%] max-h-[200px] absolute">
+              <div className="w-full h-14 bg-white py-3 px-3 mx-auto z-10 shadow-md">
+                <input
+                  onChange={handleChange}
+                  type="text"
+                  placeholder="Search"
+                  className="w-full h-8 border border-text/30 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200"
+                />
+              </div>
+              <ul className="max-h-[380px] overflow-y-auto bg-white shadow">
+                {filterCity.map((city) => (
+                  <li
+                    key={city}
+                    onClick={() => handleGetCity(city)}
+                    className="py-3 text-center border-t capitalize cursor-pointer hover:bg-gray-100">
+                    {city}
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </div>
 
