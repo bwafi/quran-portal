@@ -22,6 +22,7 @@ const SelectCity = ({ getCityDropDown, setGetCityDropDown }) => {
   const handleGetCity = (city) => {
     setShowDropDown(false);
     setGetCityDropDown(city);
+    setSearchQuery("");
   };
 
   useEffect(() => {
@@ -56,8 +57,8 @@ const SelectCity = ({ getCityDropDown, setGetCityDropDown }) => {
         <div className="w-2/12">
           <button
             onClick={() => setShowDropDown(!showDropDown)}
-            className="w-full flex items-center gap-1 border py-2 justify-center rounded-md shadow-sm">
-            {getCityDropDown} <BiCaretDown />
+            className="w-full flex items-center gap-1 border py-2 justify-center rounded-md shadow-sm capitalize">
+            {getCityDropDown} <BiCaretDown className={`${showDropDown ? "" : "rotate-180"} transition-transform`} />
           </button>
           {showDropDown && (
             <div ref={dropDownRef} className="w-[14%] max-h-[200px] absolute">
