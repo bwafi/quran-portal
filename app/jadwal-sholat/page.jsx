@@ -1,3 +1,4 @@
+import Container from "@/components/Container";
 import Layout from "@/components/Layout";
 import BodySholat from "@/components/sholat/BodySholat";
 import React from "react";
@@ -5,7 +6,9 @@ import React from "react";
 const page = () => {
   return (
     <Layout>
-      <BodySholat />
+      <Container>
+        <BodySholat />
+      </Container>
     </Layout>
   );
 };

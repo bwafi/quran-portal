@@ -5,7 +5,7 @@ import React from "react";
 const page = ({ params }) => {
   const id = params.slug;
   return (
-    <Layout>
+    <Layout className={"static"}>
       <BodyDetail id={id} />
     </Layout>
   );

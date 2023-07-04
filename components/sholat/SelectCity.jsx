@@ -52,7 +52,7 @@ const SelectCity = ({ getCityDropDown, setGetCityDropDown }) => {
   const filterCity = listCity.filter((city) => city.includes(searchQuery.toLowerCase()));
 
   return (
-    <div className="w-full mx-auto mt-10 flex justify-center">
+    <div className="w-full mx-auto mt-24 flex justify-center">
       <div className="w-full flex justify-center gap-5 items-center">
         <div className="w-2/12">
           <button
@@ -70,7 +70,7 @@ const SelectCity = ({ getCityDropDown, setGetCityDropDown }) => {
                   className="w-full h-8 border border-text/30 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200"
                 />
               </div>
-              <ul className="max-h-[380px] overflow-y-auto bg-white shadow">
+              <ul className="max-h-[380px] overflow-y-auto bg-white shadow rounded-b-md">
                 {filterCity.map((city) => (
                   <li
                     key={city}

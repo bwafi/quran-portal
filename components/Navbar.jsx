@@ -1,38 +1,53 @@
-import React from "react";
-import Link from "next/link";
+"use client";
+import React, { useState } from "react";
+import HumburgerMenu from "./ui/HumburgerMenu";
+import { AnimatePresence, motion } from "framer-motion";
+import NavList, { NavInput } from "./ui/NavList";
+import Container from "./Container";
 
-const Navbar = () => {
+const Navbar = ({ className = "fixed" }) => {
+  const [humburgerMenu, setHumburgerMenu] = useState(false);
+
+  const handleHumburgerMenu = () => {
+    setHumburgerMenu(!humburgerMenu);
+  };
+
   return (
-    <nav className="w-full bg-white text-text py-4 shadow">
-      <div className="w-full mx-auto container px-16 flex items-center justify-between">
-        <a href="/">
-          <h2 className="font-fair font-extrabold text-transparent text-3xl bg-clip-text bg-primary">Quran Portal</h2>
-        </a>
-        <ul className="flex gap-5 items-center">
-          <li className="hover:text-primary">
-            <Link href="/">Home</Link>
-          </li>
-          <li className="hover:text-primary">
-            <Link href="/jadwal-sholat">Jadwal Solat</Link>
-          </li>
-          <li className="hover:text-primary">
-            <Link href="/hadist">Hadist</Link>
-          </li>
-          <li className="hover:text-primary">
-            <Link href="/masukan">Beri Masukan</Link>
-          </li>
-        </ul>
+    <>
+      <nav className={`${className} top-0 left-0 w-full bg-white text-text py-2 sm:py-4 shadow z-50`}>
+        <div className="w-full mx-auto container px-2 md:px-8 flex items-center justify-between">
+          <div className="lg:w-3/12">
+            <a href="/">
+              <h2 className="font-fair font-extrabold text-transparent text-[26px] bg-clip-text bg-primary">
+                Quran Portal
+              </h2>
+            </a>
+          </div>
 
-        <form className="flex items-center justify-between">
-          <input
-            type="text"
-            placeholder="Search"
-            className="w-48 h-8 border border-text/30 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200"
-          />
-          <button className="bg-primary py-1 px-3 rounded-md text-white">Search</button>
-        </form>
-      </div>
-    </nav>
+          <HumburgerMenu humburgerMenu={humburgerMenu} handleHumburgerMenu={handleHumburgerMenu} />
+
+          <div className="lg:flex justify-between w-full gap-24 items-center hidden shrink">
+            <NavList />
+            <NavInput />
+          </div>
+        </div>
+      </nav>
+      <AnimatePresence>
+        {humburgerMenu && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="fixed w-full lg:hidden top-16 md:top-[82px] bg-white max-h-80 py-5 shadow z-30">
+            <div className="container w-full mx-auto px-2 md:px-8 flex flex-col gap-5">
+              <NavList />
+              <NavInput />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

@@ -54,7 +54,7 @@ const Footer = () => {
               <Link href="/about">About</Link>
             </li>
             <li className="hover:text-primary">
-              <Link href="/jadwal-sholat">Jadwal Solat</Link>
+              <Link href="/jadwal-sholat">Jadwal Sholat</Link>
             </li>
             <li className="hover:text-primary">
               <Link href="/hadist">Hadist</Link>

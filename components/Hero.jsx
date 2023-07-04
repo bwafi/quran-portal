@@ -4,7 +4,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="w-full mx-auto px-24 mt-16">
+    <section className="w-full mx-auto mt-24">
       <div className="w-full flex bg-[#2ca4ab] py-5 px-8 rounded-2xl justify-between items-center">
         <div className="w-7/12 ">
           <h2 className="font-bold text-5xl text-white-blue">Selamat Datang di Aplikasi Qur'an Portal</h2>
