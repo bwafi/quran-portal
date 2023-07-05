@@ -17,7 +17,9 @@ const DetailSurahComponent = ({ id, detailSurah }) => {
     <>
       <div className="w-full mx-auto">
         <div className="text-center py-5 border-b border-black">
-          <p className="text-6xl font-surahName text-arab">{detailSurah.number}</p>
+          <p className="text-6xl font-surahName text-arab">
+            {detailSurah.number}
+          </p>
           {preBismillah && (
             <div className="py-6 flex justify-center">
               <Image
@@ -28,17 +30,29 @@ const DetailSurahComponent = ({ id, detailSurah }) => {
                 priority
                 className="w-auto h-auto"
               />
+              <div>syahroni</div>
             </div>
           )}
-          <button onClick={handleShowModal} className="flex items-center gap-1 group">
+
+          <button
+            onClick={handleShowModal}
+            className="flex items-center gap-1 group"
+          >
             <HiInformationCircle className="text-xl group-hover:text-primary" />{" "}
-            <span className="text-sm font-bold group-hover:text-primary">Info Surah</span>
+            <span className="text-sm font-bold group-hover:text-primary">
+              Info Surah
+            </span>
           </button>
         </div>
         <div className="w-full">
           <Ayat detailSurah={detailSurah} id={id} />
         </div>
-        <TafsirSurah id={id} showModal={showModal} setShowModal={setShowModal} detailSurah={detailSurah} />
+        <TafsirSurah
+          id={id}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          detailSurah={detailSurah}
+        />
       </div>
     </>
   );

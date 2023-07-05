@@ -27,9 +27,18 @@ const BodySholat = () => {
 
   return (
     <>
-      <SelectCity getCityDropDown={getCityDropDown} setGetCityDropDown={setGetCityDropDown} />
-      <JadwalSholatNow getCityDropDown={getCityDropDown} jadwalSholat={jadwalSholat} />
-      <JadwalSholatBulan getCityDropDown={getCityDropDown} jadwalSholat={jadwalSholat} />
+      <SelectCity
+        getCityDropDown={getCityDropDown}
+        setGetCityDropDown={setGetCityDropDown}
+      />
+      <JadwalSholatNow
+        getCityDropDown={getCityDropDown}
+        jadwalSholat={jadwalSholat}
+      />
+      <JadwalSholatBulan
+        getCityDropDown={getCityDropDown}
+        jadwalSholat={jadwalSholat}
+      />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { BsMoonStars, BsSun } from "react-icons/bs";
+import { AnimatePresence, motion, spring } from "framer-motion";
 
 const NavList = () => {
   return (
@@ -42,10 +43,27 @@ export const NavInput = () => {
         />
         <button className="bg-primary py-1 px-3 rounded-md text-white">Search</button>
       </form>
-      <button className="overflow-hidden h-auto" onClick={handleDarkMode}>
-        <BsSun className={`text-2xl `} />
-        <BsMoonStars className={`text-2xl`} />
-      </button>
+      <AnimatePresence>
+        <motion.button layout transition={spring} className="overflow-hidden h-auto" onClick={handleDarkMode}>
+          {darkMode ? (
+            <motion.div
+              key={"moon"}
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 10, opacity: 0 }}>
+              <BsMoonStars className={`text-[26px]`} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key={"sun"}
+              initial={{ y: -10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}>
+              <BsSun className={`text-[26px]`} />
+            </motion.div>
+          )}
+        </motion.button>
+      </AnimatePresence>
     </div>
   );
 };
