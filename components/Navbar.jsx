@@ -25,7 +25,7 @@ const Navbar = ({ className = "fixed" }) => {
 
           <HumburgerMenu humburgerMenu={humburgerMenu} handleHumburgerMenu={handleHumburgerMenu} />
 
-          <div className="lg:flex justify-around w-full lg:gap-10 xl:gap-24 items-center hidden">
+          <div className="lg:flex justify-end w-full lg:gap-10 xl:gap-24 items-center hidden">
             <NavList />
             <NavInput />
           </div>

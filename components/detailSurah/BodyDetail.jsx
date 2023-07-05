@@ -51,10 +51,12 @@ const BodyDetail = ({ id }) => {
   return (
     <section className="w-full text-text relative">
       <div
-        className={`flex py-3 px-24 bg-[#eceff4] w-full ${
+        className={`py-3 lg:px-16 bg-[#eceff4] w-full ${
           scrollSticky ? "top-0 fixed" : "relative"
         } z-10 transition-all`}>
-        <NavMenuDetail detailSurah={detailSurah} dataSurah={dataSurah} surahList={surahList} />
+        <div className="w-full container mx-auto px-3 md:px-6 flex">
+          <NavMenuDetail detailSurah={detailSurah} dataSurah={dataSurah} surahList={surahList} />
+        </div>
       </div>
 
       <Container>

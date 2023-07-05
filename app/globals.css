@@ -22,3 +22,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #e4e2e2;
 }
+
+.shadow-dropdown {
+  box-shadow: 0px 5px 50px rgba(56, 69, 85, 0.15);
+}

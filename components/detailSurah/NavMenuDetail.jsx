@@ -65,14 +65,16 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
   const filteredAyatList = dataSurah.filter((ayat) => ayat.number.inSurah.toString().includes(searchAyatQuery));
 
   return (
-    <>
-      <div className="w-full flex gap-8">
-        <button onClick={handleToggleSurah} className="py-1 px-2 rounded-md flex items-center gap-2 hover:bg-white/40">
+    <div className="w-full flex items-center justify-between">
+      <div className="w-full flex gap-2 md:gap-8">
+        <button
+          onClick={handleToggleSurah}
+          className="py-1 px-2 rounded-md flex items-center gap-2 hover:bg-white/40 text-sm md:text-base">
           {detailSurah.name.transliteration.id}
           <BiCaretDown />
         </button>
         {toggleSurah && (
-          <div ref={dropdownRef} className="w-[18%] max-h-[430px] absolute top-14">
+          <div ref={dropdownRef} className="w-8/12 md:w-[18%] max-h-[430px] absolute top-14">
             <div className="w-full h-14 bg-white py-3 px-3 mx-auto z-10 shadow-md">
               <input
                 onChange={handleSearchSurahChange}
@@ -94,13 +96,15 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
           </div>
         )}
 
-        <button onClick={handleToggleAyat} className="py-1 px-2 rounded-md flex items-center gap-2 hover:bg-white/40">
+        <button
+          onClick={handleToggleAyat}
+          className="py-1 px-2 rounded-md flex items-center gap-2 hover:bg-white/40 text-sm md:text-base">
           Ayat {ayatHash}
           <BiCaretDown />
         </button>
 
         {toggleAyat && (
-          <div ref={dropdownAyatRef} className="w-[13%] absolute top-14 left-56">
+          <div ref={dropdownAyatRef} className="w-5/12 md:w-[13%] absolute top-14 left-32 md:left-56 shadow-dropdown ">
             <div className="w-full h-14 bg-white py-3 px-3 mx-auto z-10 shadow-md">
               <input
                 type="text"
@@ -124,8 +128,8 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
           </div>
         )}
       </div>
-      <p className="shrink">setting</p>
-    </>
+      <p className="shrink text-sm md:text-base">Setting</p>
+    </div>
   );
 };
 
