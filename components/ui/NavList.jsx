@@ -37,7 +37,7 @@ export const NavInput = () => {
   console.log(darkMode);
 
   return (
-    <div className=" order-1 lg:order-2 flex items-center gap-1 sm:gap-3">
+    <div className="order-1 lg:order-2 flex items-center gap-1 sm:gap-3">
       <form className="flex items-center">
         <input
           type="text"
