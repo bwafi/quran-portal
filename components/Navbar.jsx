@@ -14,7 +14,7 @@ const Navbar = ({ className = "fixed" }) => {
 
   return (
     <>
-      <nav className={`${className} top-0 left-0 w-full bg-white text-text py-2 sm:py-4 shadow z-50`}>
+      <nav className={`${className} top-0 left-0 w-full bg-white text-text py-2 lg:py-4 shadow z-50`}>
         <div className="w-full mx-auto container px-2 md:px-8 flex items-center justify-between">
           <div className="lg:w-3/12">
             <a href="/">
@@ -39,7 +39,7 @@ const Navbar = ({ className = "fixed" }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="fixed w-full lg:hidden top-16 md:top-[82px] bg-white max-h-80 py-5 shadow z-30">
+            className="fixed w-full lg:hidden top-16 md:top-[82px] bg-white max-h-80 py-6 shadow z-30">
             <div className="container w-full mx-auto px-2 md:px-8 flex flex-col gap-5">
               <NavList />
               <NavInput />
