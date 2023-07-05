@@ -32,7 +32,7 @@ const CardList = () => {
         <Link
           href={`/surah/${surah.number}`}
           key={surah.number}
-          className="w-[32%] flex items-center justify-between py-2 px-5 border group">
+          className="w-full sm:w-[48%] lg:w-[48%] xl:w-[32%] flex items-center justify-between py-2 px-5 border group">
           <div className="bg-gray-200 flex justify-center items-center w-8 aspect-square text-center rotate-45 mr-6 group-hover:shadow group-hover:bg-primary">
             <h3 className="-rotate-45 font-semibold text-sm group-hover:text-white">{surah.number}</h3>
           </div>
