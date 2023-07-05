@@ -54,7 +54,7 @@ const BodyDetail = ({ id }) => {
         className={`py-3 lg:px-16 bg-[#eceff4] w-full ${
           scrollSticky ? "top-0 fixed" : "relative"
         } z-10 transition-all`}>
-        <div className="w-full container mx-auto px-3 md:px-6 flex">
+        <div className="w-full container px-3 md:px-6 lg:px-16 mx-auto flex">
           <NavMenuDetail detailSurah={detailSurah} dataSurah={dataSurah} surahList={surahList} />
         </div>
       </div>

@@ -12,9 +12,9 @@ const JadwalSholatNow = ({ getCityDropDown, jadwalSholat }) => {
   const jadwalNow = jadwalSholat.filter((sholat) => sholat.tanggal == currentDate);
 
   return (
-    <div className="flex flex-col items-center justify-center my-10">
+    <div className="w-full flex flex-col items-center justify-center my-10">
       {jadwalNow.map((jadwal) => (
-        <div key={jadwal.tanggal}>
+        <div key={jadwal.tanggal} className="w-full">
           <div>
             <h4 className="text-center text-xl font-bold capitalize">Jadwal Sholat {getCityDropDown}</h4>
             <p className="text-center text-lg">
@@ -22,7 +22,7 @@ const JadwalSholatNow = ({ getCityDropDown, jadwalSholat }) => {
               <span className="ml-2">{jadwal.tanggal}</span>
             </p>
           </div>
-          <div className="flex shadow-md">
+          <div className="w-full flex flex-col lg:flex-row shadow-md">
             <TableJadwalNow sholat={"Imsyak"} time={jadwal.imsyak} />
             <TableJadwalNow sholat={"Subuh"} time={jadwal.shubuh} />
             <TableJadwalNow sholat={"Dzuhur"} time={jadwal.dzuhur} />

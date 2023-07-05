@@ -74,7 +74,7 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
           <BiCaretDown />
         </button>
         {toggleSurah && (
-          <div ref={dropdownRef} className="w-8/12 md:w-[18%] max-h-[430px] absolute top-14">
+          <div ref={dropdownRef} className="w-8/12 sm:w-5/12 md:w-[18%] max-h-[430px] absolute top-14">
             <div className="w-full h-14 bg-white py-3 px-3 mx-auto z-10 shadow-md">
               <input
                 onChange={handleSearchSurahChange}
@@ -104,7 +104,9 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
         </button>
 
         {toggleAyat && (
-          <div ref={dropdownAyatRef} className="w-5/12 md:w-[13%] absolute top-14 left-32 md:left-56 shadow-dropdown ">
+          <div
+            ref={dropdownAyatRef}
+            className="w-5/12 sm:w-3/12 md:w-[13%] absolute top-14 left-32 md:left-56 shadow-dropdown ">
             <div className="w-full h-14 bg-white py-3 px-3 mx-auto z-10 shadow-md">
               <input
                 type="text"

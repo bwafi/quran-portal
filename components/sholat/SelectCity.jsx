@@ -54,14 +54,14 @@ const SelectCity = ({ getCityDropDown, setGetCityDropDown }) => {
   return (
     <div className="w-full mx-auto mt-24 flex justify-center">
       <div className="w-full flex justify-center gap-5 items-center">
-        <div className="w-2/12">
+        <div className="w-6/12 sm:w-3/12 lg:w-2/12">
           <button
             onClick={() => setShowDropDown(!showDropDown)}
             className="w-full flex items-center gap-1 border py-2 justify-center rounded-md shadow-sm capitalize">
             {getCityDropDown} <BiCaretDown className={`${showDropDown ? "" : "rotate-180"} transition-transform`} />
           </button>
           {showDropDown && (
-            <div ref={dropDownRef} className="w-[14%] max-h-[200px] absolute">
+            <div ref={dropDownRef} className="w-6/12 sm:w-3/12 md:w-3/12 lg:w-[14%] max-h-[200px] absolute">
               <div className="w-full h-14 bg-white py-3 px-3 mx-auto z-10 shadow-md">
                 <input
                   onChange={handleChange}
