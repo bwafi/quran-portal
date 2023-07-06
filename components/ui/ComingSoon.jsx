@@ -12,7 +12,7 @@ const ComingSoon = () => {
         <div class=" w-full mt-3 mb-5">
           <div class="shadow w-full bg-white mt-2 max-w-2xl mx-auto rounded-full">
             <div
-              class="rounded-full bg-indigo-600 text-xs leading-none text-center text-white py-1"
+              class="rounded-full bg-primary text-xs leading-none text-center text-white py-1"
               style={{ width: "75%" }}>
               75%
             </div>

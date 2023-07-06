@@ -6,6 +6,7 @@ import NavList, { NavInput } from "./ui/NavList";
 
 const Navbar = ({ className = "fixed" }) => {
   const [humburgerMenu, setHumburgerMenu] = useState(false);
+  const [searchModal, setSearchModal] = useState(false);
 
   const handleHumburgerMenu = () => {
     setHumburgerMenu(!humburgerMenu);

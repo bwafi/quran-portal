@@ -67,7 +67,7 @@ const Footer = () => {
       </div>
       <div className="w-full mx-auto container px-3 md:px-6 lg:px-16 flex flex-col md:flex-row justify-between py-3 border-t">
         <p className="text-center md:text-left">
-          Copyright &copy; 2023
+          Copyright &copy; 2023{" "}
           <a href="https://www.instagram.com/itssyahroni/" target="_blank" className="hover:text-primary">
             Syahroni Bawafi
           </a>

@@ -34,8 +34,6 @@ export const NavInput = () => {
     setDarkMode(!darkMode);
   };
 
-  console.log(darkMode);
-
   return (
     <div className="order-1 lg:order-2 flex items-center gap-1 sm:gap-3">
       <form className="flex items-center">

@@ -86,7 +86,7 @@ const SelectCity = ({ getCityDropDown, setGetCityDropDown }) => {
 
         <div>
           <div>
-            <h3 className="font-bold text-2xl">{currentTime} (WIB)</h3>
+            <h3 className="font-bold text-xl sm:text-2xl">{currentTime} (WIB)</h3>
           </div>
         </div>
       </div>
