@@ -4,7 +4,7 @@ import { PiBookOpenLight, PiCopySimpleThin, PiCheckCircleLight } from "react-ico
 import TafsirAyat from "./TafsirAyat";
 
 const Ayat = ({ detailSurah }) => {
-  const [currentVerse, setCurrentVerse] = useState(null);
+  const [currentVerse, setCurrentVerse] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [numberVerses, setNumberVerses] = useState(null);

@@ -4,6 +4,7 @@ import { getSurah, selectLoadingState, selectSurahList } from "@/store/slice/con
 import Link from "next/link";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Loading from "./ui/Loading";
 
 const CardList = () => {
   const dispatch = useDispatch();
@@ -15,15 +16,7 @@ const CardList = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    return (
-      <div className="w-full flex items-center justify-center min-h-20 p-5">
-        <div className="flex space-x-2 animate-pulse">
-          <div className="w-3 h-3 bg-primary rounded-full"></div>
-          <div className="w-3 h-3 bg-primary rounded-full"></div>
-          <div className="w-3 h-3 bg-primary rounded-full"></div>
-        </div>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
