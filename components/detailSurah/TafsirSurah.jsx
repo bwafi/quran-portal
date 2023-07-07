@@ -35,21 +35,21 @@ const TafsirSurah = ({ detailSurah, setShowModal, showModal }) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
             key={detailSurah.number}
-            className="w-full h-screen bg-black bg-opacity-40 z-0 mx-auto">
+            className="w-full h-screen bg-black bg-opacity-40 z-0 mx-auto px-3">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               ref={modal}
               transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="w-7/12 overflow-y-auto mx-auto bg-white relative top-16 rounded-lg ">
-              <div className="flex justify-between items-center py-5 border-b border-gray-200 px-5 shadow-sm">
+              className="w-full sm:w-11/12 md:w-10/12 lg:w-7/12 overflow-y-auto mx-auto bg-white relative top-16 rounded-lg ">
+              <div className="flex justify-between items-center py-5 border-b border-gray-200 px-3 md:px-8 shadow-sm">
                 <h3 className="font-bold text-lg">Surah {detailSurah.name.transliteration.id}</h3>
                 <button onClick={handleCloseModal}>
                   <MdClose className="text-3xl" />
                 </button>
               </div>
-              <div className="py-5 overflow-y-auto relative max-h-96 px-8">
+              <div className="py-5 overflow-y-auto relative max-h-96 px-3 md:px-8">
                 <div className="pb-3  border-b border-b-gray-200">
                   <h4 className="font-bold flex gap-2">
                     Terjemah : <p>{detailSurah.name.translation.id}</p>

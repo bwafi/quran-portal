@@ -3,6 +3,7 @@ import Image from "next/image";
 import Ayat from "./Ayat";
 import { HiInformationCircle } from "react-icons/hi";
 import TafsirSurah from "./TafsirSurah";
+import Container from "../Container";
 
 const DetailSurahComponent = ({ id, detailSurah }) => {
   const [showModal, setShowModal] = useState(false);
