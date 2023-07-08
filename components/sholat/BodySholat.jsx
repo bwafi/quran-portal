@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import SelectCity from "./SelectCity";
-import Container from "../Container";
 import JadwalSholatNow from "./JadwalSholatNow";
 import JadwalSholatBulan from "./JadwalSholatBulan";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,18 +26,9 @@ const BodySholat = () => {
 
   return (
     <>
-      <SelectCity
-        getCityDropDown={getCityDropDown}
-        setGetCityDropDown={setGetCityDropDown}
-      />
-      <JadwalSholatNow
-        getCityDropDown={getCityDropDown}
-        jadwalSholat={jadwalSholat}
-      />
-      <JadwalSholatBulan
-        getCityDropDown={getCityDropDown}
-        jadwalSholat={jadwalSholat}
-      />
+      <SelectCity getCityDropDown={getCityDropDown} setGetCityDropDown={setGetCityDropDown} />
+      <JadwalSholatNow getCityDropDown={getCityDropDown} jadwalSholat={jadwalSholat} />
+      <JadwalSholatBulan getCityDropDown={getCityDropDown} jadwalSholat={jadwalSholat} />
     </>
   );
 };
