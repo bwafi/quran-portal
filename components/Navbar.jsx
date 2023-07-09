@@ -3,14 +3,11 @@ import React, { useState } from "react";
 import HumburgerMenu from "./ui/HumburgerMenu";
 import { AnimatePresence, motion } from "framer-motion";
 import NavList, { NavInput } from "./ui/NavList";
+import SearchSectionModal from "./ui/SearchSectionModal";
 
 const Navbar = ({ className = "fixed" }) => {
   const [humburgerMenu, setHumburgerMenu] = useState(false);
   const [searchModal, setSearchModal] = useState(false);
-
-  const handleHumburgerMenu = () => {
-    setHumburgerMenu(!humburgerMenu);
-  };
 
   return (
     <>
@@ -24,29 +21,30 @@ const Navbar = ({ className = "fixed" }) => {
             </a>
           </div>
 
-          <HumburgerMenu humburgerMenu={humburgerMenu} handleHumburgerMenu={handleHumburgerMenu} />
+          <HumburgerMenu humburgerMenu={humburgerMenu} setHumburgerMenu={setHumburgerMenu} />
 
           <div className="lg:flex justify-end w-full lg:gap-10 xl:gap-24 items-center hidden">
             <NavList />
-            <NavInput />
+            <NavInput searchModal={searchModal} setSearchModal={setSearchModal} />
           </div>
         </div>
+        <AnimatePresence>
+          {humburgerMenu && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="absolute w-full lg:hidden top-16 bg-white max-h-80 py-6 shadow z-30">
+              <div className="container w-full mx-auto px-3 md:px-6 lg:px-16 flex flex-col gap-5">
+                <NavList />
+                <NavInput searchModal={searchModal} setSearchModal={setSearchModal} />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
-      <AnimatePresence>
-        {humburgerMenu && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="fixed w-full lg:hidden top-16 bg-white max-h-80 py-6 shadow z-30">
-            <div className="container w-full mx-auto px-3 md:px-6 lg:px-16 flex flex-col gap-5">
-              <NavList />
-              <NavInput />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <SearchSectionModal setSearchModal={setSearchModal} searchModal={searchModal} />
     </>
   );
 };

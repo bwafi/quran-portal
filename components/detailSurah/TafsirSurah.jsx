@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { AnimatePresence } from "framer-motion";
 import BodyModal from "../ui/BodyModal";

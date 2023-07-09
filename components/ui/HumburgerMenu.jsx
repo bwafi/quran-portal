@@ -1,8 +1,12 @@
 import React from "react";
 
-const HumburgerMenu = ({ humburgerMenu, handleHumburgerMenu }) => {
+const HumburgerMenu = ({ humburgerMenu, setHumburgerMenu }) => {
+  const handleHumburgerMenu = () => {
+    setHumburgerMenu(!humburgerMenu);
+  };
+
   return (
-    <button className="relative group lg:hidden" onClick={handleHumburgerMenu}>
+    <button className="relative group lg:hidden" onClick={() => handleHumburgerMenu()}>
       <div className="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all duration-200">
         <div className="flex flex-col justify-between w-[24px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
           <div

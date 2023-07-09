@@ -69,7 +69,7 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
       <div className="w-full flex gap-2 md:gap-8">
         <button
           onClick={handleToggleSurah}
-          className="py-1 px-2 rounded-md flex items-center gap-2 hover:bg-white/40 text-sm md:text-base">
+          className="py-3 lg:py-1 px-2 rounded-md flex items-center gap-2 hover:bg-white/40 text-sm md:text-base">
           {detailSurah.name.transliteration.id}
           <BiCaretDown />
         </button>

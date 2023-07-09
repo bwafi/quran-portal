@@ -38,7 +38,7 @@ const BodyModal = ({ showModal, setShowModal, key, SurahName, children }) => {
           ref={modal}
           transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="w-full sm:w-11/12 md:w-10/12 lg:w-7/12 overflow-y-auto mx-auto bg-white relative top-16 rounded-lg ">
-          <div className="flex justify-between items-center py-5 border-b border-gray-200 px-3 md:px-8 shadow-sm">
+          <div className="flex justify-between items-center py-5 border-b border-gray-200  px-3 md:px-8 shadow-sm">
             <h3 className="font-bold text-lg">Surah {SurahName}</h3>
             <button onClick={handleCloseModal}>
               <MdClose className="text-3xl" />

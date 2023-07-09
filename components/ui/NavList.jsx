@@ -27,11 +27,15 @@ const NavList = () => {
 
 export default NavList;
 
-export const NavInput = () => {
+export const NavInput = ({ searchModal, setSearchModal }) => {
   const [darkMode, setDarkMode] = useState(false);
 
   const handleDarkMode = () => {
     setDarkMode(!darkMode);
+  };
+
+  const handleOnFocus = () => {
+    setSearchModal(true);
   };
 
   return (
@@ -40,6 +44,7 @@ export const NavInput = () => {
         <input
           type="text"
           placeholder="Search"
+          onFocus={handleOnFocus}
           className=" w-10/12 lg:w-48 h-8 border border-text/30 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200"
         />
         <button className="bg-primary py-1 px-2 sm:px-3 rounded-md text-white">Search</button>
