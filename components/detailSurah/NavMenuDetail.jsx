@@ -130,7 +130,6 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
           </div>
         )}
       </div>
-      <p className="shrink text-sm md:text-base">Setting</p>
     </div>
   );
 };

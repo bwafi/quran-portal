@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import React, { useEffect, useState } from "react";
 import "dayjs/locale/id";
 
 const JadwalSholatBulan = ({ getCityDropDown, jadwalSholat }) => {
