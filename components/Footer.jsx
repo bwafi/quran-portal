@@ -57,10 +57,9 @@ const Footer = () => {
               <Link href="/jadwal-sholat">Jadwal Sholat</Link>
             </li>
             <li className="hover:text-primary">
-              <Link href="/hadist">Hadist</Link>
-            </li>
-            <li className="hover:text-primary">
-              <Link href="/masukan">Beri Masukan</Link>
+              <a href="https://github.com/bwafi/quran-portal/issues/new" target="_blank">
+                Beri Masukan
+              </a>
             </li>
           </ul>
         </div>

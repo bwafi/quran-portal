@@ -9,17 +9,16 @@ const NavList = () => {
 
   return (
     <ul className="flex flex-col lg:flex-row gap-5 lg:items-center order-2 lg:order-1">
-      <li className={`hover:text-primary ${pathName === "/" && "text-primary"}`}>
+      <li className={`hover:text-primary text-lg ${pathName === "/" && "text-primary"}`}>
         <Link href="/">Home</Link>
       </li>
-      <li className={`hover:text-primary ${pathName === "/jadwal-sholat" && "text-primary"}`}>
+      <li className={`hover:text-primary text-lg ${pathName === "/jadwal-sholat" && "text-primary"}`}>
         <Link href="/jadwal-sholat">Jadwal Sholat</Link>
       </li>
-      <li className={`hover:text-primary ${pathName === "/hadist" && "text-primary"}`}>
-        <Link href="/hadist">Hadist</Link>
-      </li>
-      <li className={`hover:text-primary ${pathName === "/masukan" && "text-primary"}`}>
-        <Link href="/masukan">Beri Masukan</Link>
+      <li className={`hover:text-primary text-lg ${pathName === "/masukan" && "text-primary"}`}>
+        <a href="https://github.com/bwafi/quran-portal/issues/new" target="_blank">
+          Beri Masukan
+        </a>
       </li>
     </ul>
   );

@@ -77,7 +77,7 @@ const SearchSectionModal = ({ searchModal, setSearchModal }) => {
               <ul className="overflow-y-auto max-h-72 sm:max-h-[400px] z-10">
                 {filteredSurahList.map((surah) => (
                   <Link key={surah.number} href={`/surah/${surah.number}`}>
-                    <li className="border-b bg-white hover:bg-gray-200 py-3 md:py-5 flex justify-between">
+                    <li className="border-b bg-white hover:bg-gray-200 px-2 py-3 md:py-5 flex justify-between">
                       <span className="">{surah.name.transliteration.id}</span>
                       <p className="font-lpmq">{surah.name.short}</p>
                     </li>
