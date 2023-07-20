@@ -62,31 +62,37 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
       .includes(searchSurahQuery.toLowerCase())
   );
 
-  const filteredAyatList = dataSurah.filter((ayat) => ayat.number.inSurah.toString().includes(searchAyatQuery));
+  const filteredAyatList = dataSurah.filter((ayat) =>
+    ayat.number.inSurah.toString().includes(searchAyatQuery)
+  );
 
   return (
     <div className="w-full flex items-center justify-between">
       <div className="w-full flex gap-2 md:gap-8">
         <button
           onClick={handleToggleSurah}
-          className="py-3 lg:py-1 px-2 rounded-md flex items-center gap-2 hover:bg-white/40 text-sm md:text-base">
+          className="py-3 lg:py-1 px-2 rounded-md flex items-center gap-2 hover:bg-white/40 text-sm md:text-base"
+        >
           {detailSurah.name.transliteration.id}
           <BiCaretDown />
         </button>
         {toggleSurah && (
-          <div ref={dropdownRef} className="w-8/12 sm:w-5/12 md:w-[18%] max-h-[430px] absolute top-14">
-            <div className="w-full h-14 bg-white py-3 px-3 mx-auto z-10 shadow-md">
+          <div
+            ref={dropdownRef}
+            className="w-8/12 sm:w-5/12 md:w-[18%] max-h-[430px] absolute top-14"
+          >
+            <div className="w-full h-14 bg-white dark:bg-[#041b38] py-3 px-3 mx-auto z-10 shadow-md">
               <input
                 onChange={handleSearchSurahChange}
                 type="text"
                 placeholder="Search"
-                className="w-full h-8 border border-text/30 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200"
+                className="w-full h-10 border border-text/30 dark:border-gray-400 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200 dark:bg-soft-dark"
               />
             </div>
             <ul className="overflow-y-auto max-h-[430px] rounded-md shadow-md z-10">
               {filteredSurahList.map((surah) => (
                 <Link key={surah.number} href={`/surah/${surah.number}`}>
-                  <li className="border-b bg-white hover:bg-gray-200 py-5 px-4 flex justify-between">
+                  <li className="border-b dark:border-b dark:border-b-text-bg-dark/60 bg-white dark:bg-[#041b38] hover:bg-gray-200 dark:hover:bg-soft-dark py-5 px-4 flex justify-between">
                     <span className="">{surah.name.transliteration.id}</span>
                     <p className="font-lpmq">{surah.name.short}</p>
                   </li>
@@ -98,7 +104,8 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
 
         <button
           onClick={handleToggleAyat}
-          className="py-1 px-2 rounded-md flex items-center gap-2 hover:bg-white/40 text-sm md:text-base">
+          className="py-1 px-2 rounded-md flex items-center gap-2 hover:bg-white/40 text-sm md:text-base"
+        >
           Ayat {ayatHash}
           <BiCaretDown />
         </button>
@@ -106,13 +113,14 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
         {toggleAyat && (
           <div
             ref={dropdownAyatRef}
-            className="w-5/12 sm:w-3/12 md:w-[13%] absolute top-14 left-32 md:left-56 shadow-dropdown ">
-            <div className="w-full h-14 bg-white py-3 px-3 mx-auto z-10 shadow-md">
+            className="w-5/12 sm:w-3/12 md:w-[13%] absolute top-14 left-32 md:left-56 shadow-dropdown "
+          >
+            <div className="w-full h-14 bg-white dark:bg-[#041b38]  py-3 px-3 mx-auto z-10 shadow-md">
               <input
                 type="text"
                 placeholder="Search"
                 onChange={handleSearchAyatChange}
-                className="w-full h-8 border border-text/30 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200"
+                className="w-full h-10 border border-text/30 dark:border-gray-400 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200 dark:bg-soft-dark"
               />
             </div>
             <ul className=" max-h-[430px] overflow-auto rounded-md shadow-md z-10 top-14">
@@ -120,8 +128,9 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
                 <a
                   key={surah.number.inSurah}
                   href={`#${surah.number.inSurah}`}
-                  onClick={() => handleGetAyat(surah.number.inSurah)}>
-                  <li className="border-b border-b-gray-100 bg-white hover:bg-gray-200 py-3 px-4 flex justify-between">
+                  onClick={() => handleGetAyat(surah.number.inSurah)}
+                >
+                  <li className="border-b border-b-gray-100 dark:border-b dark:border-b-text-bg-dark/60 bg-white dark:bg-[#041b38] dark:hover:bg-soft-dark hover:bg-gray-200 py-3 px-4 flex justify-between">
                     <span className="">Ayat {surah.number.inSurah}</span>
                   </li>
                 </a>

@@ -16,8 +16,8 @@ const DetailSurahComponent = ({ id, detailSurah }) => {
   return (
     <>
       <div className="w-full mx-auto">
-        <div className="text-center py-5 border-b border-black container mx-auto md:px-6 ">
-          <p className="text-6xl font-surahName text-arab">{detailSurah.number}</p>
+        <div className="text-center py-5 border-b border-black dark:border-text-bg-dark/60 container mx-auto md:px-6 ">
+          <p className="text-6xl font-surahName text-arab dark:text-text-bg-dark">{detailSurah.number}</p>
           {preBismillah && (
             <div className="py-6 flex justify-center">
               <Image
@@ -26,12 +26,12 @@ const DetailSurahComponent = ({ id, detailSurah }) => {
                 width={250}
                 height={250}
                 priority
-                className="w-auto h-auto"
+                className="w-auto h-auto dark:invert"
               />
             </div>
           )}
 
-          <button onClick={handleShowModal} className="flex items-center gap-1 group">
+          <button onClick={handleShowModal} className="flex items-center gap-1 group dark:text-text-bg-dark">
             <HiInformationCircle className="text-xl group-hover:text-primary" />{" "}
             <span className="text-sm font-bold group-hover:text-primary">Info Surah</span>
           </button>

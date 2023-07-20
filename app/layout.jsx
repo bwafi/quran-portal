@@ -3,6 +3,7 @@ import "./globals.css";
 import { Roboto, Playfair_Display } from "next/font/google";
 import localFont from "next/font/local";
 import { Providers } from "@/store/Providers";
+import ThemeProviders from "./themeProviders";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -39,8 +40,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth scroll-py-24">
       <body
-        className={`${roboto.variable} ${fair.variable} ${lpmq.variable} ${surahName.variable} font-roboto bg-white`}>
-        <Providers>{children}</Providers>
+        className={`${roboto.variable} ${fair.variable} ${lpmq.variable} ${surahName.variable} font-roboto bg-white dark:bg-bg-dark dark:text-text-bg-dark`}>
+        <ThemeProviders>
+          <Providers>{children}</Providers>
+        </ThemeProviders>
       </body>
     </html>
   );

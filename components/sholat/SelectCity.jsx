@@ -27,7 +27,11 @@ const SelectCity = ({ getCityDropDown, setGetCityDropDown }) => {
 
   useEffect(() => {
     const handleClickOutSide = (event) => {
-      if (showDropDown && dropDownRef.current && !dropDownRef.current.contains(event.target)) {
+      if (
+        showDropDown &&
+        dropDownRef.current &&
+        !dropDownRef.current.contains(event.target)
+      ) {
         setShowDropDown(false);
       }
     };
@@ -49,7 +53,9 @@ const SelectCity = ({ getCityDropDown, setGetCityDropDown }) => {
     setSearchQuery(event.target.value);
   };
 
-  const filterCity = listCity.filter((city) => city.includes(searchQuery.toLowerCase()));
+  const filterCity = listCity.filter((city) =>
+    city.includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div className="w-full mx-auto mt-24 flex justify-center">
@@ -57,25 +63,35 @@ const SelectCity = ({ getCityDropDown, setGetCityDropDown }) => {
         <div className="w-6/12 sm:w-3/12 lg:w-2/12">
           <button
             onClick={() => setShowDropDown(!showDropDown)}
-            className="w-full flex items-center gap-1 border py-2 justify-center rounded-md shadow-sm capitalize">
-            {getCityDropDown} <BiCaretDown className={`${showDropDown ? "" : "rotate-180"} transition-transform`} />
+            className="w-full flex items-center gap-1 border py-2 justify-center rounded-md shadow-sm capitalize"
+          >
+            {getCityDropDown}{" "}
+            <BiCaretDown
+              className={`${
+                showDropDown ? "" : "rotate-180"
+              } transition-transform`}
+            />
           </button>
           {showDropDown && (
-            <div ref={dropDownRef} className="w-6/12 sm:w-3/12 md:w-3/12 lg:w-[14%] max-h-[200px] absolute">
-              <div className="w-full h-14 bg-white py-3 px-3 mx-auto z-10 shadow-md">
+            <div
+              ref={dropDownRef}
+              className="w-6/12 sm:w-3/12 md:w-3/12 lg:w-[14%] max-h-[200px] absolute"
+            >
+              <div className="w-full h-14 bg-white dark:bg-soft-dark py-3 px-3 mx-auto z-10 shadow-md">
                 <input
                   onChange={handleChange}
                   type="text"
                   placeholder="Search"
-                  className="w-full h-8 border border-text/30 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200"
+                  className="w-full h-8 border border-text/30 dark:border-gray-400 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200 dark:bg-bg-dark"
                 />
               </div>
-              <ul className="max-h-[380px] overflow-y-auto bg-white shadow rounded-b-md">
+              <ul className="max-h-[380px] overflow-y-auto bg-white dark:bg-soft-dark shadow rounded-b-md">
                 {filterCity.map((city) => (
                   <li
                     key={city}
                     onClick={() => handleGetCity(city)}
-                    className="py-3 text-center border-t capitalize cursor-pointer hover:bg-gray-100">
+                    className="py-3 text-center border-t dark:border-t dark:border-t-text-bg-dark/60 capitalize cursor-pointer hover:bg-gray-100 dark:hover:bg-bg-dark"
+                  >
                     {city}
                   </li>
                 ))}
@@ -86,7 +102,9 @@ const SelectCity = ({ getCityDropDown, setGetCityDropDown }) => {
 
         <div>
           <div>
-            <h3 className="font-bold text-xl sm:text-2xl">{currentTime} (WIB)</h3>
+            <h3 className="font-bold text-xl sm:text-2xl">
+              {currentTime} (WIB)
+            </h3>
           </div>
         </div>
       </div>

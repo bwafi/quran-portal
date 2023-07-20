@@ -1,8 +1,7 @@
 import Link from "next/link";
-import React, { useState } from "react";
-import { BsMoonStars, BsSun } from "react-icons/bs";
-import { AnimatePresence, motion, spring } from "framer-motion";
+import React from "react";
 import { usePathname } from "next/navigation";
+import DarkMode from "./DarkMode";
 
 const NavList = () => {
   const pathName = usePathname();
@@ -26,13 +25,7 @@ const NavList = () => {
 
 export default NavList;
 
-export const NavInput = ({ searchModal, setSearchModal }) => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  const handleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-
+export const NavInput = ({ setSearchModal }) => {
   const handleOnFocus = () => {
     setSearchModal(true);
   };
@@ -44,31 +37,11 @@ export const NavInput = ({ searchModal, setSearchModal }) => {
           type="text"
           placeholder="Search"
           onFocus={handleOnFocus}
-          className=" w-10/12 lg:w-48 h-8 border border-text/30 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200"
+          className=" w-10/12 lg:w-48 h-8 border border-text/30 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200 dark:bg-soft-dark dark:border-white"
         />
         <button className="bg-primary py-1 px-2 sm:px-3 rounded-md text-white">Search</button>
       </form>
-      <AnimatePresence>
-        <motion.button layout transition={spring} className="overflow-hidden h-auto shrink" onClick={handleDarkMode}>
-          {darkMode ? (
-            <motion.div
-              key={"moon"}
-              initial={{ y: 10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 10, opacity: 0 }}>
-              <BsMoonStars className={`text-[26px]`} />
-            </motion.div>
-          ) : (
-            <motion.div
-              key={"sun"}
-              initial={{ y: -10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -10, opacity: 0 }}>
-              <BsSun className={`text-[26px]`} />
-            </motion.div>
-          )}
-        </motion.button>
-      </AnimatePresence>
+      <DarkMode />
     </div>
   );
 };

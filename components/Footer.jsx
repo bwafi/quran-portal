@@ -7,8 +7,8 @@ import { AiFillGithub, AiFillLinkedin, AiFillInstagram, AiFillTwitterSquare } fr
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-white-blue mx-auto text-text">
-      <div className="w-full mx-auto container px-3 md:px-6 lg:px-16 flex flex-col md:flex-row py-5">
+    <footer className="w-full bg-white-blue mx-auto text-text dark:bg-soft-dark dark:text-text-bg-dark">
+      <div className="w-full mx-auto container px-3 md:px-6 lg:px-16 flex flex-col md:flex-row py-5 md:py-8">
         <div className="w-full md:w-5/12">
           <h2 className="font-fair font-extrabold text-transparent text-2xl bg-clip-text bg-primary">Quran Portal</h2>
           <h4 className="font-bold mt-3">Baca dan pelajari The Noble Quran</h4>

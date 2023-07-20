@@ -45,8 +45,11 @@ const Ayat = ({ detailSurah }) => {
   return (
     <>
       {verses.map((data) => (
-        <div id={data.number.inSurah} key={data.number.inSurah} className="py-6 border-b border-black/20 text-text">
-          <p className="text-right font-lpmq text-2xl text-arab">
+        <div
+          id={data.number.inSurah}
+          key={data.number.inSurah}
+          className="py-6 border-b border-black/20 text-text dark:text-text-bg-dark dark:border-text-bg-dark/60">
+          <p className="text-right font-lpmq text-2xl text-arab dark:text-text-bg-dark">
             {data.text.arab} <span className="text-3xl">{arabicNumber(data.number.inSurah)}</span>
           </p>
           <p className="mt-6">{data.translation.id}</p>

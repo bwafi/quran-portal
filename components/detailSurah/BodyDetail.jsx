@@ -48,7 +48,7 @@ const BodyDetail = ({ id }) => {
   return (
     <section className="w-full text-text relative">
       <div
-        className={`py-3 lg:px-16 bg-[#eceff4] w-full ${
+        className={`py-3 lg:px-16 bg-text-bg-dark dark:bg-[#041b38] dark:text-text-bg-dark w-full ${
           scrollSticky ? "top-0 fixed" : "relative"
         } z-10 transition-all`}>
         <div className="w-full container px-3 md:px-6 lg:px-16 mx-auto flex">

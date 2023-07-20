@@ -6,21 +6,32 @@ const JadwalSholatBulan = ({ getCityDropDown, jadwalSholat }) => {
   const month = dayjs().format("MMMM");
   const currentDate = dayjs().format("YYYY-MM-DD");
 
-  const headerTable = ["Tanggal", "Imsyak", "Subuh", "Dzuhur", "Ashar", "Maghrib", "Isya"];
+  const headerTable = [
+    "Tanggal",
+    "Imsyak",
+    "Subuh",
+    "Dzuhur",
+    "Ashar",
+    "Maghrib",
+    "Isya",
+  ];
 
   return (
     <div className="w-full my-24">
       <h1 className="capitalize text-base md:text-lg font-semibold mb-5">
         Jadwal Sholat {getCityDropDown} Bulan Ini :{" "}
       </h1>
-      <div className="flex flex-col items-center justify-center py-3 bg-[#FEFBF6]">
+      <div className="flex flex-col items-center justify-center py-3 bg-[#FEFBF6] dark:bg-soft-dark">
         <h4 className="text-lg font-semibold py-5">{month} 2023</h4>
         <div className="w-full overflow-x-auto">
           <table className="min-w-full overflow-x-auto text-center">
             <thead className="w-full bg-primary">
               <tr>
                 {headerTable.map((header, index) => (
-                  <th key={index} className="text-white py-3 px-8 sm:px-0 text-sm lg:text-base">
+                  <th
+                    key={index}
+                    className="text-white py-3 px-8 sm:px-0 text-sm lg:text-base"
+                  >
                     {header}
                   </th>
                 ))}
@@ -30,9 +41,12 @@ const JadwalSholatBulan = ({ getCityDropDown, jadwalSholat }) => {
               {jadwalSholat.map((sholat, index) => (
                 <tr
                   key={index}
-                  className={`odd:bg-[#F5F5F5] text-sm lg:text-base even:bg-[#E8E2E2] ${
-                    currentDate === sholat.tanggal ? "bg-primary text-white" : ""
-                  }`}>
+                  className={`odd:bg-[#F5F5F5] dark:odd:bg-soft-dark text-sm lg:text-base even:bg-[#E8E2E2] dark:even:bg-[#323962] ${
+                    currentDate === sholat.tanggal
+                      ? "bg-primary text-white"
+                      : ""
+                  }`}
+                >
                   <td className="py-3">{sholat.tanggal}</td>
                   <td className="py-3">{sholat.imsyak} (WIB)</td>
                   <td className="py-3">{sholat.shubuh} (WIB)</td>
