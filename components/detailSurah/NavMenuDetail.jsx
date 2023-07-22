@@ -59,11 +59,11 @@ const NavMenuDetail = ({ dataSurah, detailSurah, surahList }) => {
     surah.name.transliteration.id
       .replace(/[.,'"-]/g, "")
       .toLowerCase()
-      .includes(searchSurahQuery.toLowerCase())
+      .includes(searchSurahQuery.toLowerCase()),
   );
 
   const filteredAyatList = dataSurah.filter((ayat) =>
-    ayat.number.inSurah.toString().includes(searchAyatQuery)
+    ayat.number.inSurah.toString().includes(searchAyatQuery),
   );
 
   return (

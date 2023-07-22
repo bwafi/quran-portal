@@ -43,7 +43,7 @@ const Navbar = ({ className = "fixed" }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="absolute w-full lg:hidden top-16 bg-white max-h-80 py-6 shadow z-30"
+              className="absolute w-full lg:hidden top-16 bg-white dark:bg-bg-dark dark:text-text-bg-dark max-h-80 py-6 shadow z-30"
             >
               <div className="container w-full mx-auto px-3 md:px-6 lg:px-16 flex flex-col gap-5">
                 <NavList />
