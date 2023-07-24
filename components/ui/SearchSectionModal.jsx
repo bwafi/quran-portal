@@ -73,13 +73,13 @@ const SearchSectionModal = ({ searchModal, setSearchModal }) => {
                   type="text"
                   onChange={handleOnChange}
                   placeholder="Search"
-                  className="w-full h-10 border border-text/30 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200"
+                  className="w-full h-10 dark:bg-soft-dark border border-text/30 rounded-lg mr-2 px-2 focus:outline-none focus:ring ring-blue-200"
                 />
               </form>
               <ul className="overflow-y-auto max-h-72 sm:max-h-[400px] z-10">
                 {filteredSurahList.map((surah) => (
                   <Link key={surah.number} href={`/surah/${surah.number}`}>
-                    <li className="border-b bg-white hover:bg-gray-200 px-2 py-3 md:py-5 flex justify-between">
+                    <li className="border-b bg-white dark:bg-bg-dark hover:bg-gray-200 px-2 py-3 md:py-5 flex justify-between">
                       <span className="">{surah.name.transliteration.id}</span>
                       <p className="font-lpmq">{surah.name.short}</p>
                     </li>
