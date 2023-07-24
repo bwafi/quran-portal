@@ -46,7 +46,7 @@ const SearchSectionModal = ({ searchModal, setSearchModal }) => {
     surah.name.transliteration.id
       .replace(/[.,'"-]/g, "")
       .toLowerCase()
-      .includes(searchQuery.toLowerCase())
+      .includes(searchQuery.toLowerCase()),
   );
 
   return (
@@ -58,14 +58,16 @@ const SearchSectionModal = ({ searchModal, setSearchModal }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="w-full bg-black/40 h-screen px-3">
+            className="w-full bg-black/40 h-screen px-3"
+          >
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
               ref={refModal}
-              className="w-full sm:w-8/12 lg:w-5/12 bg-white mx-auto relative top-16 py-5 px-5 rounded-lg">
+              className="w-full sm:w-8/12 lg:w-5/12 bg-white dark:bg-bg-dark dark:text-text-bg-dark mx-auto relative top-16 py-5 px-5 rounded-lg"
+            >
               <form className="flex items-center">
                 <input
                   type="text"
